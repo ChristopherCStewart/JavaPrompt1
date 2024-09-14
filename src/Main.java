@@ -21,7 +21,7 @@ public class Main {
         myUserListResults = cleanUserData(myUserList);
 
         for (int i = 0; i < myUserListResults.size(); i++) {
-            System.out.println(myUserListResults.get(i).firstName + ", " + myUserListResults.get(i).lastName + ", " + myUserListResults.get(i).telephoneNumber + "\n");
+            System.out.println(myUserListResults.get(i).FirstName + ", " + myUserListResults.get(i).LastName + ", " + myUserListResults.get(i).TelephoneNumber + "\n");
         }
     }
 
@@ -32,22 +32,22 @@ public class Main {
         // constructor
         public User(String fn, String ln, String tn)
         {
-            this.firstName = fn;
-            this.lastName = ln;
-            this.telephoneNumber = tn;
+            this.FirstName = fn;
+            this.LastName = ln;
+            this.TelephoneNumber = tn;
         }
-        public String firstName;
-        public String lastName;
-        public String telephoneNumber;
+        public String FirstName;
+        public String LastName;
+        public String TelephoneNumber;
 
-        public String getFirstName() { return firstName; }
-        public void setFirstName(String firstName) { this.firstName = firstName; }
+        public String getFirstName() { return FirstName; }
+        public void setFirstName(String firstName) { this.FirstName = FirstName; }
 
-        public String getLastName() { return lastName; }
-        public void setLastName(String lastName) { this.lastName = lastName; }
+        public String getLastName() { return LastName; }
+        public void setLastName(String LastName) { this.LastName = LastName; }
 
-        public String getTelephoneNumber() { return telephoneNumber; }
-        public void setTelephoneNumber(String telephoneNumber) { this.telephoneNumber = telephoneNumber; }
+        public String getTelephoneNumber() { return TelephoneNumber; }
+        public void setTelephoneNumber(String telephoneNumber) { this.TelephoneNumber = TelephoneNumber; }
     }
 
     public static List<User> cleanUserData(List<User> users)
@@ -56,19 +56,19 @@ public class Main {
 
         for (User user : users) {
             // check for null or empty values
-            if (user.firstName != null && !user.firstName.isEmpty() &&
-                    user.lastName != null && !user.lastName.isEmpty() &&
-                    user.telephoneNumber != null && !user.telephoneNumber.isEmpty()) {
+            if (user.FirstName != null && !user.FirstName.isEmpty() &&
+                    user.LastName != null && !user.LastName.isEmpty() &&
+                    user.TelephoneNumber != null && !user.TelephoneNumber.isEmpty()) {
 
-                // check that firstName and LastName are only alphabetic
-                if (user.firstName.chars().allMatch(Character::isLetter) &&
-                        user.lastName.chars().allMatch(Character::isLetter)) {
+                // check that FirstName and LastName are only alphabetic
+                if (user.FirstName.chars().allMatch(Character::isLetter) &&
+                        user.LastName.chars().allMatch(Character::isLetter)) {
 
-                    // remove any non-numeric characters from telephoneNumber
-                    user.telephoneNumber = user.telephoneNumber.replaceAll("[^0-9]", "");
+                    // remove any non-numeric characters from TelephoneNumber
+                    user.TelephoneNumber = user.TelephoneNumber.replaceAll("[^0-9]", "");
 
-                    // if telephoneNumber length is 10 then we are all good. Add user to return list
-                    if (user.telephoneNumber.length() == 10) {
+                    // if TelephoneNumber length is 10 then we are all good. Add user to return list
+                    if (user.TelephoneNumber.length() == 10) {
                         validUsers.add(user);
                     }
                 }
